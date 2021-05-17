@@ -1,10 +1,7 @@
-const totalCategories = document.querySelectorAll('#categories li.item');
-console.log('В списке категорий', totalCategories);
-
-const menuCategoryIitle = document.querySelectorAll('#categories li.item h2');
-console.log(menuCategoryIitle);
-console.log(menuCategoryIitle.textContent);
-
-const quantityItems = document.querySelectorAll('.item li');
-console.log(quantityItems);
-
+const ul = Array.from(document.querySelector('#categories').children);
+// console.log(ul);
+for (let elem of ul) {
+    let category = elem.firstElementChild.textContent;   
+    let quantityElem = elem.lastElementChild.children.length;
+    console.log(`Категория: ${category} \nКоличество элементов: ${quantityElem}`);
+};
