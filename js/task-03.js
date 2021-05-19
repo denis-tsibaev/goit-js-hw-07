@@ -13,22 +13,19 @@ const images = [
     },
 ];
 
-const galleryList = document.querySelector('#gallery');
+const gallery = document.querySelector('#gallery');
 
-const addInList = (arr, listEl) => {
-    arr.forEach(image => {
-        const liEl = document.createElement('li');
-        listEl.appendChild(liEl);
-		const imgEl = document.createElement('img');
-		imgEl.src= image.url;
-		// console.log(imgEl.url);
-		imgEl.alt = image.alt;
-		// console.log(imgEl.alt);
-		imgEl.width = 640;
-		liEl.appendChild(imgEl);
-    });
-};
+// images.forEach(item => {
+//     const list = document.createElement('li');
+//     const img = document.createElement('img');
+//     img.src = item.url;
+//     img.alt = item.alt;
+//     img.style.width = '500px';
+//     list.append(img);
+//     gallery.append(list);
+// });
 
-addInList(images, galleryList);
+gallery.insertAdjacentHTML('afterbegin',
+    images.map(img => `<li><img src='${img.url}' alt='${img.alt}' width = '500'></li>`).join(''));
 
-// console.log(galleryList);
+
